@@ -1,0 +1,2530 @@
+<!--
+     Copyright 2020 Google LLC
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            FuzzBench: aflpp-hier-r19 report
+            
+        </title>
+
+        <!-- Import Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Import Google Material Icon Font -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    </head>
+<body>
+    <div class="container"><div class="row"><div class="col s12 m10 l10">
+
+        <h1 class="center-align brown-text text-darken-3">
+            FuzzBench: aflpp-hier-r19 report
+        </h1>
+        
+
+        <div class="card-panel amber lighten-5">
+            <div class="row">
+                <div class="col s4 m2 center-align">
+                    <i class="medium material-icons">warning</i>
+                </div>
+                <div class="col s8 m10">
+                    <span class="black-text">
+                        Please consider this as a preliminary report to
+                        demonstrate the capabilities of FuzzBench. While we have
+                        tried our best, we have not confirmed that we configured
+                        everything correctly. We are hoping to work together
+                        with the community to validate results and improve the
+                        set of fuzzers, benchmarks, and their configurations in
+                        the future.
+                        See <a href="https://google.github.io/fuzzbench/faq">FAQ</a>
+                        for more details.
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="summary" class="section scrollspy">
+            <h2 class="green-text text-darken-3">experiment summary</h2>
+
+            
+
+            
+
+            We show two different aggregate (cross-benchmark) rankings of fuzzers.
+            The first is based on the average of per-benchmarks scores, where
+            the score represents the percentage of the highest reached median
+            coverage on a given benchmark (higher value is better).
+
+            The second ranking shows the average rank of fuzzers, after we rank
+            them on each benchmark according to their median reached covereges
+            (lower value is better).
+
+            <div class="row">
+                <div class="col s5 offset-s1">
+                    <h5 class="center-align">By avg. score</h5>
+                    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average normalized score</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus">aflplusplus</a></th>
+      <td>99.95</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus_hier">aflplusplus_hier</a></th>
+      <td>81.99</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus_hier_coe">aflplusplus_hier_coe</a></th>
+      <td>79.84</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus_hier_fast">aflplusplus_hier_fast</a></th>
+      <td>79.81</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/afl_qemu">afl_qemu</a></th>
+      <td>78.81</td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+                <div class="col s5">
+                    <h5 class="center-align">By avg. rank</h5>
+                    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average rank</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus">aflplusplus</a></th>
+      <td>1.1</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus_hier">aflplusplus_hier</a></th>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus_hier_coe">aflplusplus_hier_coe</a></th>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/aflplusplus_hier_fast">aflplusplus_hier_fast</a></th>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/google/fuzzbench/blob/c9f5f9bfc3eacad64f9263ad03f5b984d404280b/fuzzers/afl_qemu">afl_qemu</a></th>
+      <td>4.3</td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Critical difference diagram
+                    </div>
+                    <div class="collapsible-body">
+
+
+            
+
+            The diagram visualizes the average rank of fuzzers (second ranking
+            above) while showing the significance of the differences as well.
+            What is considered a "critical difference" (CD) is based on the
+            Friedman/Nemenyi post-hoc test. See more in the <a
+            href="https://google.github.io/fuzzbench/reference/report/">
+            documentation</a>.
+
+            <br>
+
+            <div class="row">
+                <div class="col s7 offset-s3">
+                    <img class="responsive-img materialboxed"
+                         src="experiment_critical_difference_plot.svg">
+                </div>
+            </div>
+
+            Note: If a fuzzer does not support all benchmarks, its ranking as
+            shown in this diagram can be lower than it should be. So please
+            check the list of supported benchmarks for the fuzzer(s) of your interest.
+            The list could be specified in the fuzzer's README.md like
+            <a href="https://github.com/google/fuzzbench/blob/master/fuzzers/aflsmart/README.md">this</a>.
+
+             
+
+                    </div>
+                </li>
+            </ul>
+
+             
+
+             
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Median coverages on each benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>fuzzer</th>
+      <th>afl_qemu</th>
+      <th>aflplusplus</th>
+      <th>aflplusplus_hier</th>
+      <th>aflplusplus_hier_coe</th>
+      <th>aflplusplus_hier_fast</th>
+    </tr>
+    <tr>
+      <th>benchmark</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>freetype2-2017</th>
+      <td>13661.0</td>
+      <td>17294.5</td>
+      <td>14965.5</td>
+      <td>13787.0</td>
+      <td>13944.0</td>
+    </tr>
+    <tr>
+      <th>harfbuzz-1.3.2</th>
+      <td>6817.0</td>
+      <td>7966.0</td>
+      <td>6895.0</td>
+      <td>6966.5</td>
+      <td>6845.5</td>
+    </tr>
+    <tr>
+      <th>lcms-2017-03-21</th>
+      <td>1090.0</td>
+      <td>2864.5</td>
+      <td>1083.0</td>
+      <td>1088.5</td>
+      <td>1084.0</td>
+    </tr>
+    <tr>
+      <th>libjpeg-turbo-07-2017</th>
+      <td>2478.0</td>
+      <td>3287.0</td>
+      <td>2674.0</td>
+      <td>2531.0</td>
+      <td>2447.0</td>
+    </tr>
+    <tr>
+      <th>libpng-1.2.56</th>
+      <td>1394.0</td>
+      <td>1946.0</td>
+      <td>1498.0</td>
+      <td>1534.0</td>
+      <td>1534.0</td>
+    </tr>
+    <tr>
+      <th>libxml2-v2.9.2</th>
+      <td>4470.0</td>
+      <td>6681.0</td>
+      <td>4594.0</td>
+      <td>3843.0</td>
+      <td>3835.0</td>
+    </tr>
+    <tr>
+      <th>openssl_x509</th>
+      <td>13686.0</td>
+      <td>13733.0</td>
+      <td>13686.5</td>
+      <td>13689.0</td>
+      <td>13689.0</td>
+    </tr>
+    <tr>
+      <th>openthread-2019-12-23</th>
+      <td>4989.0</td>
+      <td>5807.0</td>
+      <td>5000.5</td>
+      <td>4976.5</td>
+      <td>5005.0</td>
+    </tr>
+    <tr>
+      <th>sqlite3_ossfuzz</th>
+      <td>18244.0</td>
+      <td>19435.0</td>
+      <td>18690.5</td>
+      <td>18495.0</td>
+      <td>19020.0</td>
+    </tr>
+    <tr>
+      <th>vorbis-2017-12-11</th>
+      <td>1838.0</td>
+      <td>1985.0</td>
+      <td>1995.0</td>
+      <td>1982.0</td>
+      <td>1980.0</td>
+    </tr>
+  </tbody>
+</table>
+                    </div>
+                </li>
+            </ul>
+        </div> <!-- id="experiment" -->
+
+        
+
+        <div id="freetype2-2017" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">freetype2-2017 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="freetype2-2017_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="freetype2-2017_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="freetype2-2017_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>17063.0</td>
+      <td>1622.546764</td>
+      <td>14930.0</td>
+      <td>16346.75</td>
+      <td>17294.5</td>
+      <td>18010.75</td>
+      <td>18733.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>14919.0</td>
+      <td>181.840590</td>
+      <td>14679.0</td>
+      <td>14827.50</td>
+      <td>14965.5</td>
+      <td>15057.00</td>
+      <td>15066.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>13955.0</td>
+      <td>182.654501</td>
+      <td>13767.0</td>
+      <td>13824.00</td>
+      <td>13944.0</td>
+      <td>14075.00</td>
+      <td>14165.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>13776.2</td>
+      <td>96.680918</td>
+      <td>13656.0</td>
+      <td>13714.00</td>
+      <td>13787.0</td>
+      <td>13816.00</td>
+      <td>13908.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>13670.0</td>
+      <td>187.148337</td>
+      <td>13408.0</td>
+      <td>13624.00</td>
+      <td>13661.0</td>
+      <td>13731.00</td>
+      <td>13926.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="freetype2-2017_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="freetype2-2017_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="freetype2-2017_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/freetype2-2017/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/freetype2-2017/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/freetype2-2017/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/freetype2-2017/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/freetype2-2017/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="freetype2-2017" -->
+        
+
+        <div id="harfbuzz-1.3.2" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">harfbuzz-1.3.2 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="harfbuzz-1.3.2_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="harfbuzz-1.3.2_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="harfbuzz-1.3.2_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card-panel deep-orange lighten-3">
+                <div class="row valign-wrapper">
+                    <div class="col s4 m2 center-align">
+                        <i class="medium material-icons">error</i>
+                    </div>
+                    <div class="col s8 m10">
+                        <span class="black-text">
+                            The following fuzzers do not have enough samples:
+                            <strong>
+                                aflplusplus_hier, afl_qemu, aflplusplus_hier_coe.
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>7966.600000</td>
+      <td>36.191159</td>
+      <td>7926.0</td>
+      <td>7945.00</td>
+      <td>7966.0</td>
+      <td>7974.00</td>
+      <td>8022.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>2.0</td>
+      <td>6966.500000</td>
+      <td>40.305087</td>
+      <td>6938.0</td>
+      <td>6952.25</td>
+      <td>6966.5</td>
+      <td>6980.75</td>
+      <td>6995.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>3.0</td>
+      <td>6899.666667</td>
+      <td>53.153865</td>
+      <td>6849.0</td>
+      <td>6872.00</td>
+      <td>6895.0</td>
+      <td>6925.00</td>
+      <td>6955.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>6875.500000</td>
+      <td>139.672235</td>
+      <td>6756.0</td>
+      <td>6769.50</td>
+      <td>6845.5</td>
+      <td>6951.50</td>
+      <td>7055.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>3.0</td>
+      <td>6755.333333</td>
+      <td>176.760667</td>
+      <td>6556.0</td>
+      <td>6686.50</td>
+      <td>6817.0</td>
+      <td>6855.00</td>
+      <td>6893.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="harfbuzz-1.3.2_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="harfbuzz-1.3.2_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="harfbuzz-1.3.2_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/harfbuzz-1.3.2/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/harfbuzz-1.3.2/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/harfbuzz-1.3.2/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/harfbuzz-1.3.2/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/harfbuzz-1.3.2/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="harfbuzz-1.3.2" -->
+        
+
+        <div id="lcms-2017-03-21" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">lcms-2017-03-21 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="lcms-2017-03-21_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="lcms-2017-03-21_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="lcms-2017-03-21_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card-panel deep-orange lighten-3">
+                <div class="row valign-wrapper">
+                    <div class="col s4 m2 center-align">
+                        <i class="medium material-icons">error</i>
+                    </div>
+                    <div class="col s8 m10">
+                        <span class="black-text">
+                            The following fuzzers do not have enough samples:
+                            <strong>
+                                aflplusplus_hier.
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>2855.75</td>
+      <td>78.410777</td>
+      <td>2754.0</td>
+      <td>2821.50</td>
+      <td>2864.5</td>
+      <td>2898.75</td>
+      <td>2940.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>1088.75</td>
+      <td>6.020797</td>
+      <td>1081.0</td>
+      <td>1085.50</td>
+      <td>1090.0</td>
+      <td>1093.25</td>
+      <td>1094.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>1090.25</td>
+      <td>8.460693</td>
+      <td>1083.0</td>
+      <td>1083.75</td>
+      <td>1088.5</td>
+      <td>1095.00</td>
+      <td>1101.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1106.20</td>
+      <td>47.065911</td>
+      <td>1082.0</td>
+      <td>1082.00</td>
+      <td>1084.0</td>
+      <td>1093.00</td>
+      <td>1190.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>2.0</td>
+      <td>1083.00</td>
+      <td>1.414214</td>
+      <td>1082.0</td>
+      <td>1082.50</td>
+      <td>1083.0</td>
+      <td>1083.50</td>
+      <td>1084.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="lcms-2017-03-21_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="lcms-2017-03-21_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="lcms-2017-03-21_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/lcms-2017-03-21/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/lcms-2017-03-21/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/lcms-2017-03-21/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/lcms-2017-03-21/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/lcms-2017-03-21/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="lcms-2017-03-21" -->
+        
+
+        <div id="libjpeg-turbo-07-2017" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">libjpeg-turbo-07-2017 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libjpeg-turbo-07-2017_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libjpeg-turbo-07-2017_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libjpeg-turbo-07-2017_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card-panel deep-orange lighten-3">
+                <div class="row valign-wrapper">
+                    <div class="col s4 m2 center-align">
+                        <i class="medium material-icons">error</i>
+                    </div>
+                    <div class="col s8 m10">
+                        <span class="black-text">
+                            The following fuzzers do not have enough samples:
+                            <strong>
+                                aflplusplus, aflplusplus_hier_coe.
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>3.0</td>
+      <td>3230.333333</td>
+      <td>124.114195</td>
+      <td>3088.0</td>
+      <td>3187.50</td>
+      <td>3287.0</td>
+      <td>3301.50</td>
+      <td>3316.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>2748.500000</td>
+      <td>225.045921</td>
+      <td>2575.0</td>
+      <td>2605.75</td>
+      <td>2674.0</td>
+      <td>2816.75</td>
+      <td>3071.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>3.0</td>
+      <td>2455.666667</td>
+      <td>173.716244</td>
+      <td>2257.0</td>
+      <td>2394.00</td>
+      <td>2531.0</td>
+      <td>2555.00</td>
+      <td>2579.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>2475.750000</td>
+      <td>76.882486</td>
+      <td>2385.0</td>
+      <td>2430.75</td>
+      <td>2478.0</td>
+      <td>2523.00</td>
+      <td>2562.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>2454.200000</td>
+      <td>82.299453</td>
+      <td>2361.0</td>
+      <td>2389.00</td>
+      <td>2447.0</td>
+      <td>2523.00</td>
+      <td>2551.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libjpeg-turbo-07-2017_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libjpeg-turbo-07-2017_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libjpeg-turbo-07-2017_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libjpeg-turbo-07-2017/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libjpeg-turbo-07-2017/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libjpeg-turbo-07-2017/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libjpeg-turbo-07-2017/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libjpeg-turbo-07-2017/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="libjpeg-turbo-07-2017" -->
+        
+
+        <div id="libpng-1.2.56" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">libpng-1.2.56 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libpng-1.2.56_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libpng-1.2.56_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libpng-1.2.56_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1945.2</td>
+      <td>1.923538</td>
+      <td>1942.0</td>
+      <td>1945.0</td>
+      <td>1946.0</td>
+      <td>1946.0</td>
+      <td>1947.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1525.2</td>
+      <td>22.129166</td>
+      <td>1502.0</td>
+      <td>1503.0</td>
+      <td>1534.0</td>
+      <td>1534.0</td>
+      <td>1553.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1517.6</td>
+      <td>44.914363</td>
+      <td>1444.0</td>
+      <td>1509.0</td>
+      <td>1534.0</td>
+      <td>1542.0</td>
+      <td>1559.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1523.4</td>
+      <td>56.945588</td>
+      <td>1475.0</td>
+      <td>1476.0</td>
+      <td>1498.0</td>
+      <td>1570.0</td>
+      <td>1598.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1346.8</td>
+      <td>100.043491</td>
+      <td>1238.0</td>
+      <td>1239.0</td>
+      <td>1394.0</td>
+      <td>1431.0</td>
+      <td>1432.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpng-1.2.56_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpng-1.2.56_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpng-1.2.56_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libpng-1.2.56/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libpng-1.2.56/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libpng-1.2.56/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libpng-1.2.56/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libpng-1.2.56/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="libpng-1.2.56" -->
+        
+
+        <div id="libxml2-v2.9.2" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">libxml2-v2.9.2 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libxml2-v2.9.2_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libxml2-v2.9.2_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="libxml2-v2.9.2_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card-panel deep-orange lighten-3">
+                <div class="row valign-wrapper">
+                    <div class="col s4 m2 center-align">
+                        <i class="medium material-icons">error</i>
+                    </div>
+                    <div class="col s8 m10">
+                        <span class="black-text">
+                            The following fuzzers do not have enough samples:
+                            <strong>
+                                aflplusplus_hier_coe.
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>7890.000000</td>
+      <td>1779.368849</td>
+      <td>6501.0</td>
+      <td>6644.00</td>
+      <td>6681.0</td>
+      <td>9404.00</td>
+      <td>10220.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>4557.500000</td>
+      <td>207.814821</td>
+      <td>4291.0</td>
+      <td>4446.25</td>
+      <td>4594.0</td>
+      <td>4705.25</td>
+      <td>4751.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>4453.600000</td>
+      <td>235.758987</td>
+      <td>4211.0</td>
+      <td>4284.00</td>
+      <td>4470.0</td>
+      <td>4484.00</td>
+      <td>4819.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>3.0</td>
+      <td>3861.333333</td>
+      <td>163.273799</td>
+      <td>3708.0</td>
+      <td>3775.50</td>
+      <td>3843.0</td>
+      <td>3938.00</td>
+      <td>4033.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>3866.200000</td>
+      <td>96.442729</td>
+      <td>3789.0</td>
+      <td>3801.00</td>
+      <td>3835.0</td>
+      <td>3879.00</td>
+      <td>4027.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libxml2-v2.9.2_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libxml2-v2.9.2_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libxml2-v2.9.2_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libxml2-v2.9.2/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libxml2-v2.9.2/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libxml2-v2.9.2/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libxml2-v2.9.2/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/libxml2-v2.9.2/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="libxml2-v2.9.2" -->
+        
+
+        <div id="openssl_x509" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">openssl_x509 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="openssl_x509_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="openssl_x509_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="openssl_x509_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>13727.20</td>
+      <td>12.417729</td>
+      <td>13705.0</td>
+      <td>13732.00</td>
+      <td>13733.0</td>
+      <td>13733.00</td>
+      <td>13733.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>13688.75</td>
+      <td>2.061553</td>
+      <td>13686.0</td>
+      <td>13688.25</td>
+      <td>13689.0</td>
+      <td>13689.50</td>
+      <td>13691.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>13689.00</td>
+      <td>1.870829</td>
+      <td>13687.0</td>
+      <td>13688.00</td>
+      <td>13689.0</td>
+      <td>13689.00</td>
+      <td>13692.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>13693.75</td>
+      <td>14.840822</td>
+      <td>13686.0</td>
+      <td>13686.00</td>
+      <td>13686.5</td>
+      <td>13694.25</td>
+      <td>13716.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>13686.00</td>
+      <td>0.000000</td>
+      <td>13686.0</td>
+      <td>13686.00</td>
+      <td>13686.0</td>
+      <td>13686.00</td>
+      <td>13686.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openssl_x509_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openssl_x509_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openssl_x509_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openssl_x509/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openssl_x509/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openssl_x509/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openssl_x509/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openssl_x509/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="openssl_x509" -->
+        
+
+        <div id="openthread-2019-12-23" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">openthread-2019-12-23 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="openthread-2019-12-23_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="openthread-2019-12-23_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="openthread-2019-12-23_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card-panel deep-orange lighten-3">
+                <div class="row valign-wrapper">
+                    <div class="col s4 m2 center-align">
+                        <i class="medium material-icons">error</i>
+                    </div>
+                    <div class="col s8 m10">
+                        <span class="black-text">
+                            The following fuzzers do not have enough samples:
+                            <strong>
+                                aflplusplus_hier_coe.
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>5797.40</td>
+      <td>21.054691</td>
+      <td>5765.0</td>
+      <td>5788.00</td>
+      <td>5807.0</td>
+      <td>5810.00</td>
+      <td>5817.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>5000.80</td>
+      <td>22.543292</td>
+      <td>4975.0</td>
+      <td>4980.00</td>
+      <td>5005.0</td>
+      <td>5019.00</td>
+      <td>5025.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>5009.25</td>
+      <td>52.747038</td>
+      <td>4958.0</td>
+      <td>4974.50</td>
+      <td>5000.5</td>
+      <td>5035.25</td>
+      <td>5078.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>4990.60</td>
+      <td>14.223220</td>
+      <td>4972.0</td>
+      <td>4989.00</td>
+      <td>4989.0</td>
+      <td>4991.00</td>
+      <td>5012.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>2.0</td>
+      <td>4976.50</td>
+      <td>4.949747</td>
+      <td>4973.0</td>
+      <td>4974.75</td>
+      <td>4976.5</td>
+      <td>4978.25</td>
+      <td>4980.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openthread-2019-12-23_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openthread-2019-12-23_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openthread-2019-12-23_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openthread-2019-12-23/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openthread-2019-12-23/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openthread-2019-12-23/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openthread-2019-12-23/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/openthread-2019-12-23/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="openthread-2019-12-23" -->
+        
+
+        <div id="sqlite3_ossfuzz" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">sqlite3_ossfuzz summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="sqlite3_ossfuzz_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="sqlite3_ossfuzz_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="sqlite3_ossfuzz_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>19427.0</td>
+      <td>1361.665524</td>
+      <td>17880.0</td>
+      <td>18280.0</td>
+      <td>19435.0</td>
+      <td>20546.0</td>
+      <td>20994.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>19004.2</td>
+      <td>311.263072</td>
+      <td>18699.0</td>
+      <td>18727.0</td>
+      <td>19020.0</td>
+      <td>19119.0</td>
+      <td>19456.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>18702.5</td>
+      <td>49.561410</td>
+      <td>18657.0</td>
+      <td>18675.0</td>
+      <td>18690.5</td>
+      <td>18718.0</td>
+      <td>18772.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>18682.0</td>
+      <td>423.170769</td>
+      <td>18370.0</td>
+      <td>18463.0</td>
+      <td>18495.0</td>
+      <td>18668.0</td>
+      <td>19414.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>18328.2</td>
+      <td>228.563339</td>
+      <td>18059.0</td>
+      <td>18210.0</td>
+      <td>18244.0</td>
+      <td>18518.0</td>
+      <td>18610.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="sqlite3_ossfuzz_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="sqlite3_ossfuzz_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="sqlite3_ossfuzz_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/sqlite3_ossfuzz/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/sqlite3_ossfuzz/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/sqlite3_ossfuzz/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/sqlite3_ossfuzz/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/sqlite3_ossfuzz/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="sqlite3_ossfuzz" -->
+        
+
+        <div id="vorbis-2017-12-11" class="section scrollspy">
+
+            <h2 class="green-text text-darken-3">vorbis-2017-12-11 summary</h2>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="center-align">Ranking by median reached coverage</h5>
+                    <img class="responsive-img materialboxed"
+                         src="vorbis-2017-12-11_ranking.svg">
+                </div>
+                <div class="col s6">
+                    <h5 class="center-align">Reached coverage distribution</h5>
+                    <img class="responsive-img materialboxed"
+                         src="vorbis-2017-12-11_violin.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Mean coverage growth over time</h5>
+                    <img class="responsive-img materialboxed"
+                         src="vorbis-2017-12-11_coverage_growth.svg">
+                    <div class="center-align">
+                        * The error bands show the 95% confidence interval
+                          around the mean coverage.
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Sample statistics and statistical significance
+                    </div>
+                    <div class="collapsible-body">
+
+                        <h5 class="center-align">Coverage sample statistics</h5>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>median</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>fuzzer</th>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aflplusplus_hier</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>2000.6</td>
+      <td>14.909728</td>
+      <td>1986.0</td>
+      <td>1989.0</td>
+      <td>1995.0</td>
+      <td>2015.0</td>
+      <td>2018.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1938.2</td>
+      <td>85.250806</td>
+      <td>1839.0</td>
+      <td>1852.0</td>
+      <td>1985.0</td>
+      <td>2006.0</td>
+      <td>2009.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_coe</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1922.4</td>
+      <td>91.939110</td>
+      <td>1821.0</td>
+      <td>1823.0</td>
+      <td>1982.0</td>
+      <td>1985.0</td>
+      <td>2001.0</td>
+    </tr>
+    <tr>
+      <th>aflplusplus_hier_fast</th>
+      <th>7200</th>
+      <td>4.0</td>
+      <td>1980.5</td>
+      <td>10.754844</td>
+      <td>1968.0</td>
+      <td>1975.5</td>
+      <td>1980.0</td>
+      <td>1985.0</td>
+      <td>1994.0</td>
+    </tr>
+    <tr>
+      <th>afl_qemu</th>
+      <th>7200</th>
+      <td>5.0</td>
+      <td>1870.8</td>
+      <td>84.396090</td>
+      <td>1795.0</td>
+      <td>1799.0</td>
+      <td>1838.0</td>
+      <td>1950.0</td>
+      <td>1972.0</td>
+    </tr>
+  </tbody>
+</table>
+                        <br>
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Mann-Whitney U test</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="vorbis-2017-12-11_mann_whitney_plot.svg">
+                                    The table summarizes the p values of
+                                    pairwise Mann-Whitney U tests.
+                                    Green cells indicate that the reached
+                                    coverage distribution of a given fuzzer pair
+                                    is significantly different.
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="vorbis-2017-12-11_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="vorbis-2017-12-11_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/vorbis-2017-12-11/aflplusplus_hier/index.html" class="collection-item">aflplusplus_hier</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/vorbis-2017-12-11/aflplusplus_hier_coe/index.html" class="collection-item">aflplusplus_hier_coe</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/vorbis-2017-12-11/afl_qemu/index.html" class="collection-item">afl_qemu</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/vorbis-2017-12-11/aflplusplus_hier_fast/index.html" class="collection-item">aflplusplus_hier_fast</a>
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r19/coverage/reports/vorbis-2017-12-11/aflplusplus/index.html" class="collection-item">aflplusplus</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div> <!-- id="vorbis-2017-12-11" -->
+        
+
+        <div id="data" class="section scrollspy">
+            <h2 class="green-text text-darken-3">experiment data</h2>
+            You can download the raw data for this report <a href="data.csv.gz">here</a>.
+
+            <br><br>
+            Check out the <a href="https://google.github.io/fuzzbench/developing-fuzzbench/custom_analysis_and_reports">documentation</a> on how to create customized reports using this data.
+            Also see some example Colab notebooks for doing custom analysis on the data <a href="https://github.com/google/fuzzbench/tree/master/analysis/notebooks">here</a>.
+
+            
+            <br><br>
+            The experiment was conducted using this FuzzBench commit:
+            <a href="https://github.com/google/fuzzbench/commits/c9f5f9bfc3eacad64f9263ad03f5b984d404280b">c9f5f9bfc3eacad64f9263ad03f5b984d404280b</a>
+            
+
+            
+            <br><br>
+            Experiment Description:<br><br>
+            (None,)
+            
+        </div>    <!-- id="data" -->
+
+    </div> <!-- class="col" -->
+
+    <div class="col hide-on-med-and-down l2">
+        <ul class="section table-of-contents">
+            <li><a href="#summary">experiment summary</a></li>
+            
+            <li><a href="#freetype2-2017">freetype2-2017</a></li>
+            
+            <li><a href="#harfbuzz-1.3.2">harfbuzz-1.3.2</a></li>
+            
+            <li><a href="#lcms-2017-03-21">lcms-2017-03-21</a></li>
+            
+            <li><a href="#libjpeg-turbo-07-2017">libjpeg-turbo-07-2017</a></li>
+            
+            <li><a href="#libpng-1.2.56">libpng-1.2.56</a></li>
+            
+            <li><a href="#libxml2-v2.9.2">libxml2-v2.9.2</a></li>
+            
+            <li><a href="#openssl_x509">openssl_x509</a></li>
+            
+            <li><a href="#openthread-2019-12-23">openthread-2019-12-23</a></li>
+            
+            <li><a href="#sqlite3_ossfuzz">sqlite3_ossfuzz</a></li>
+            
+            <li><a href="#vorbis-2017-12-11">vorbis-2017-12-11</a></li>
+            
+            <li><a href="#data">experiment data</a></li>
+        </ul>
+    </div>
+
+    </div> <!-- class="row" -->
+    </div> <!-- class="container" -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+     M.AutoInit();
+     document.addEventListener('DOMContentLoaded', function() {
+         var toc = document.querySelectorAll('.table-of-contents');
+         M.Pushpin.init(toc);
+
+         var scrollspy_elems = document.querySelectorAll('.scrollspy');
+         var scrollspy_options = {scrollOffset: 0};
+         M.ScrollSpy.init(scrollspy_elems, scrollspy_options);
+     });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js"></script>
+    <script>
+     anchors.add();
+    </script>
+</body>
+</html>
