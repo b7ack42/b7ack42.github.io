@@ -19,8 +19,6 @@
         <title>
             FuzzBench: aflpp-hier-r220 report
             
-            (running)
-            
         </title>
 
         <!-- Import Materialize CSS -->
@@ -35,10 +33,6 @@
         <h1 class="center-align brown-text text-darken-3">
             FuzzBench: aflpp-hier-r220 report
         </h1>
-        
-        <h5 class="center-align brown-text text-darken-4">
-            (experiment incomplete/still running...)
-        </h5>
         
 
         <div class="card-panel amber lighten-5">
@@ -91,83 +85,83 @@
   <tbody>
     <tr>
       <th>bloaty_fuzz_target</th>
-      <td>5064</td>
+      <td>5742</td>
     </tr>
     <tr>
       <th>curl_curl_fuzzer_http</th>
-      <td>15578</td>
+      <td>16838</td>
     </tr>
     <tr>
       <th>freetype2-2017</th>
-      <td>3121</td>
+      <td>18425</td>
     </tr>
     <tr>
       <th>harfbuzz-1.3.2</th>
-      <td>7237</td>
+      <td>8270</td>
     </tr>
     <tr>
       <th>jsoncpp_jsoncpp_fuzzer</th>
-      <td>187</td>
+      <td>639</td>
     </tr>
     <tr>
       <th>lcms-2017-03-21</th>
-      <td>1079</td>
+      <td>1099</td>
     </tr>
     <tr>
       <th>libjpeg-turbo-07-2017</th>
-      <td>2712</td>
+      <td>3314</td>
     </tr>
     <tr>
       <th>libpcap_fuzz_both</th>
-      <td>85</td>
+      <td>2474</td>
     </tr>
     <tr>
       <th>libpng-1.2.56</th>
-      <td>1477</td>
+      <td>1605</td>
     </tr>
     <tr>
       <th>libxml2-v2.9.2</th>
-      <td>4442</td>
+      <td>6075</td>
     </tr>
     <tr>
       <th>mbedtls_fuzz_dtlsclient</th>
-      <td>7534</td>
+      <td>8135</td>
     </tr>
     <tr>
       <th>openssl_x509</th>
-      <td>13686</td>
+      <td>13711</td>
     </tr>
     <tr>
       <th>openthread-2019-12-23</th>
-      <td>5020</td>
+      <td>5167</td>
     </tr>
     <tr>
       <th>proj4-2017-08-14</th>
-      <td>973</td>
+      <td>4308</td>
     </tr>
     <tr>
       <th>re2-2014-12-09</th>
-      <td>2920</td>
+      <td>3444</td>
     </tr>
     <tr>
       <th>sqlite3_ossfuzz</th>
-      <td>17184</td>
+      <td>23203</td>
     </tr>
     <tr>
       <th>systemd_fuzz-link-parser</th>
-      <td>628</td>
+      <td>640</td>
     </tr>
     <tr>
       <th>vorbis-2017-12-11</th>
-      <td>1844</td>
+      <td>2087</td>
     </tr>
     <tr>
       <th>woff2-2016-05-06</th>
-      <td>1629</td>
+      <td>1725</td>
     </tr>
     <tr>
       <th>zlib_zlib_uncompress_fuzzer</th>
-      <td>932</td>
+      <td>952</td>
     </tr>
   </tbody>
 </table>
@@ -246,15 +240,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>5039.333333</td>
-      <td>43.592813</td>
-      <td>4989.0</td>
-      <td>5026.5</td>
-      <td>5064.0</td>
-      <td>5064.5</td>
-      <td>5065.0</td>
+      <td>5831.666667</td>
+      <td>198.333894</td>
+      <td>5694.0</td>
+      <td>5718.0</td>
+      <td>5742.0</td>
+      <td>5900.5</td>
+      <td>6059.0</td>
     </tr>
   </tbody>
 </table>
@@ -277,6 +271,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="bloaty_fuzz_target_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="bloaty_fuzz_target_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/bloaty_fuzz_target/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="bloaty_fuzz_target" -->
@@ -350,15 +391,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>15497.666667</td>
-      <td>223.598599</td>
-      <td>15245.0</td>
-      <td>15411.5</td>
-      <td>15578.0</td>
-      <td>15624.0</td>
-      <td>15670.0</td>
+      <td>16853.0</td>
+      <td>69.720872</td>
+      <td>16792.0</td>
+      <td>16815.0</td>
+      <td>16838.0</td>
+      <td>16883.5</td>
+      <td>16929.0</td>
     </tr>
   </tbody>
 </table>
@@ -381,6 +422,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="curl_curl_fuzzer_http_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="curl_curl_fuzzer_http_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/curl_curl_fuzzer_http/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="curl_curl_fuzzer_http" -->
@@ -454,15 +542,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>6819.333333</td>
-      <td>6405.701237</td>
-      <td>3121.0</td>
-      <td>3121.0</td>
-      <td>3121.0</td>
-      <td>8668.5</td>
-      <td>14216.0</td>
+      <td>18592.666667</td>
+      <td>453.381002</td>
+      <td>18247.0</td>
+      <td>18336.0</td>
+      <td>18425.0</td>
+      <td>18765.5</td>
+      <td>19106.0</td>
     </tr>
   </tbody>
 </table>
@@ -485,6 +573,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="freetype2-2017_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="freetype2-2017_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/freetype2-2017/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="freetype2-2017" -->
@@ -558,15 +693,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>7228.333333</td>
-      <td>30.92464</td>
-      <td>7194.0</td>
-      <td>7215.5</td>
-      <td>7237.0</td>
-      <td>7245.5</td>
-      <td>7254.0</td>
+      <td>8260.333333</td>
+      <td>22.143472</td>
+      <td>8235.0</td>
+      <td>8252.5</td>
+      <td>8270.0</td>
+      <td>8273.0</td>
+      <td>8276.0</td>
     </tr>
   </tbody>
 </table>
@@ -589,6 +724,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="harfbuzz-1.3.2_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="harfbuzz-1.3.2_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/harfbuzz-1.3.2/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="harfbuzz-1.3.2" -->
@@ -662,15 +844,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>336.666667</td>
-      <td>259.230271</td>
-      <td>187.0</td>
-      <td>187.0</td>
-      <td>187.0</td>
-      <td>411.5</td>
-      <td>636.0</td>
+      <td>639.0</td>
+      <td>0.0</td>
+      <td>639.0</td>
+      <td>639.0</td>
+      <td>639.0</td>
+      <td>639.0</td>
+      <td>639.0</td>
     </tr>
   </tbody>
 </table>
@@ -693,6 +875,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="jsoncpp_jsoncpp_fuzzer_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="jsoncpp_jsoncpp_fuzzer_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/jsoncpp_jsoncpp_fuzzer/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="jsoncpp_jsoncpp_fuzzer" -->
@@ -766,15 +995,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>1076.333333</td>
-      <td>12.220202</td>
-      <td>1063.0</td>
-      <td>1071.0</td>
-      <td>1079.0</td>
-      <td>1083.0</td>
+      <td>1116.666667</td>
+      <td>41.428654</td>
       <td>1087.0</td>
+      <td>1093.0</td>
+      <td>1099.0</td>
+      <td>1131.5</td>
+      <td>1164.0</td>
     </tr>
   </tbody>
 </table>
@@ -797,6 +1026,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="lcms-2017-03-21_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="lcms-2017-03-21_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/lcms-2017-03-21/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="lcms-2017-03-21" -->
@@ -870,15 +1146,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>2685.666667</td>
-      <td>74.096784</td>
-      <td>2602.0</td>
-      <td>2657.0</td>
-      <td>2712.0</td>
-      <td>2727.5</td>
-      <td>2743.0</td>
+      <td>3292.666667</td>
+      <td>44.060564</td>
+      <td>3242.0</td>
+      <td>3278.0</td>
+      <td>3314.0</td>
+      <td>3318.0</td>
+      <td>3322.0</td>
     </tr>
   </tbody>
 </table>
@@ -901,6 +1177,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libjpeg-turbo-07-2017_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libjpeg-turbo-07-2017_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/libjpeg-turbo-07-2017/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="libjpeg-turbo-07-2017" -->
@@ -974,15 +1297,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>89.666667</td>
-      <td>9.865766</td>
-      <td>83.0</td>
-      <td>84.0</td>
-      <td>85.0</td>
-      <td>93.0</td>
+      <td>1900.333333</td>
+      <td>1592.003874</td>
       <td>101.0</td>
+      <td>1287.5</td>
+      <td>2474.0</td>
+      <td>2800.0</td>
+      <td>3126.0</td>
     </tr>
   </tbody>
 </table>
@@ -1005,6 +1328,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpcap_fuzz_both_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpcap_fuzz_both_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/libpcap_fuzz_both/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="libpcap_fuzz_both" -->
@@ -1078,15 +1448,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>1486.0</td>
-      <td>20.07486</td>
-      <td>1472.0</td>
-      <td>1474.5</td>
-      <td>1477.0</td>
-      <td>1493.0</td>
-      <td>1509.0</td>
+      <td>1605.0</td>
+      <td>1.0</td>
+      <td>1604.0</td>
+      <td>1604.5</td>
+      <td>1605.0</td>
+      <td>1605.5</td>
+      <td>1606.0</td>
     </tr>
   </tbody>
 </table>
@@ -1109,6 +1479,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpng-1.2.56_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpng-1.2.56_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/libpng-1.2.56/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="libpng-1.2.56" -->
@@ -1182,15 +1599,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>3564.666667</td>
-      <td>1764.917656</td>
-      <td>1533.0</td>
-      <td>2987.5</td>
-      <td>4442.0</td>
-      <td>4580.5</td>
-      <td>4719.0</td>
+      <td>6132.333333</td>
+      <td>128.94314</td>
+      <td>6042.0</td>
+      <td>6058.5</td>
+      <td>6075.0</td>
+      <td>6177.5</td>
+      <td>6280.0</td>
     </tr>
   </tbody>
 </table>
@@ -1213,6 +1630,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libxml2-v2.9.2_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libxml2-v2.9.2_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/libxml2-v2.9.2/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="libxml2-v2.9.2" -->
@@ -1286,15 +1750,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>7551.0</td>
-      <td>44.034078</td>
-      <td>7518.0</td>
-      <td>7526.0</td>
-      <td>7534.0</td>
-      <td>7567.5</td>
-      <td>7601.0</td>
+      <td>8108.333333</td>
+      <td>66.161419</td>
+      <td>8033.0</td>
+      <td>8084.0</td>
+      <td>8135.0</td>
+      <td>8146.0</td>
+      <td>8157.0</td>
     </tr>
   </tbody>
 </table>
@@ -1317,6 +1781,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="mbedtls_fuzz_dtlsclient_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="mbedtls_fuzz_dtlsclient_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/mbedtls_fuzz_dtlsclient/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="mbedtls_fuzz_dtlsclient" -->
@@ -1390,15 +1901,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>9608.333333</td>
-      <td>7067.922632</td>
-      <td>1447.0</td>
-      <td>7566.5</td>
-      <td>13686.0</td>
-      <td>13689.0</td>
-      <td>13692.0</td>
+      <td>13710.333333</td>
+      <td>11.015141</td>
+      <td>13699.0</td>
+      <td>13705.0</td>
+      <td>13711.0</td>
+      <td>13716.0</td>
+      <td>13721.0</td>
     </tr>
   </tbody>
 </table>
@@ -1421,6 +1932,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openssl_x509_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openssl_x509_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/openssl_x509/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="openssl_x509" -->
@@ -1494,15 +2052,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>4998.0</td>
-      <td>50.714889</td>
-      <td>4940.0</td>
-      <td>4980.0</td>
-      <td>5020.0</td>
-      <td>5027.0</td>
-      <td>5034.0</td>
+      <td>5171.0</td>
+      <td>9.643651</td>
+      <td>5164.0</td>
+      <td>5165.5</td>
+      <td>5167.0</td>
+      <td>5174.5</td>
+      <td>5182.0</td>
     </tr>
   </tbody>
 </table>
@@ -1525,6 +2083,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openthread-2019-12-23_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="openthread-2019-12-23_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/openthread-2019-12-23/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="openthread-2019-12-23" -->
@@ -1598,15 +2203,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>737.666667</td>
-      <td>597.812958</td>
-      <td>58.0</td>
-      <td>515.5</td>
-      <td>973.0</td>
-      <td>1077.5</td>
-      <td>1182.0</td>
+      <td>4110.333333</td>
+      <td>549.827549</td>
+      <td>3489.0</td>
+      <td>3898.5</td>
+      <td>4308.0</td>
+      <td>4421.0</td>
+      <td>4534.0</td>
     </tr>
   </tbody>
 </table>
@@ -1629,6 +2234,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="proj4-2017-08-14_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="proj4-2017-08-14_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/proj4-2017-08-14/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="proj4-2017-08-14" -->
@@ -1702,15 +2354,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>3005.0</td>
-      <td>158.615888</td>
-      <td>2907.0</td>
-      <td>2913.5</td>
-      <td>2920.0</td>
-      <td>3054.0</td>
-      <td>3188.0</td>
+      <td>3466.666667</td>
+      <td>46.360903</td>
+      <td>3436.0</td>
+      <td>3440.0</td>
+      <td>3444.0</td>
+      <td>3482.0</td>
+      <td>3520.0</td>
     </tr>
   </tbody>
 </table>
@@ -1733,6 +2385,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="re2-2014-12-09_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="re2-2014-12-09_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/re2-2014-12-09/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="re2-2014-12-09" -->
@@ -1806,15 +2505,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>17347.333333</td>
-      <td>471.70789</td>
-      <td>16979.0</td>
-      <td>17081.5</td>
-      <td>17184.0</td>
-      <td>17531.5</td>
-      <td>17879.0</td>
+      <td>23045.0</td>
+      <td>273.664028</td>
+      <td>22729.0</td>
+      <td>22966.0</td>
+      <td>23203.0</td>
+      <td>23203.0</td>
+      <td>23203.0</td>
     </tr>
   </tbody>
 </table>
@@ -1837,6 +2536,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="sqlite3_ossfuzz_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="sqlite3_ossfuzz_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/sqlite3_ossfuzz/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="sqlite3_ossfuzz" -->
@@ -1910,15 +2656,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>628.0</td>
+      <td>640.0</td>
       <td>0.0</td>
-      <td>628.0</td>
-      <td>628.0</td>
-      <td>628.0</td>
-      <td>628.0</td>
-      <td>628.0</td>
+      <td>640.0</td>
+      <td>640.0</td>
+      <td>640.0</td>
+      <td>640.0</td>
+      <td>640.0</td>
     </tr>
   </tbody>
 </table>
@@ -1941,6 +2687,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="systemd_fuzz-link-parser_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="systemd_fuzz-link-parser_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/systemd_fuzz-link-parser/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="systemd_fuzz-link-parser" -->
@@ -2014,15 +2807,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>1877.0</td>
-      <td>92.0489</td>
-      <td>1806.0</td>
-      <td>1825.0</td>
-      <td>1844.0</td>
-      <td>1912.5</td>
-      <td>1981.0</td>
+      <td>2086.0</td>
+      <td>27.513633</td>
+      <td>2058.0</td>
+      <td>2072.5</td>
+      <td>2087.0</td>
+      <td>2100.0</td>
+      <td>2113.0</td>
     </tr>
   </tbody>
 </table>
@@ -2045,6 +2838,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="vorbis-2017-12-11_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="vorbis-2017-12-11_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/vorbis-2017-12-11/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="vorbis-2017-12-11" -->
@@ -2118,15 +2958,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>1096.333333</td>
-      <td>932.148236</td>
-      <td>20.0</td>
-      <td>824.5</td>
-      <td>1629.0</td>
-      <td>1634.5</td>
-      <td>1640.0</td>
+      <td>1720.0</td>
+      <td>26.851443</td>
+      <td>1691.0</td>
+      <td>1708.0</td>
+      <td>1725.0</td>
+      <td>1734.5</td>
+      <td>1744.0</td>
     </tr>
   </tbody>
 </table>
@@ -2149,6 +2989,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="woff2-2016-05-06_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="woff2-2016-05-06_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/woff2-2016-05-06/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="woff2-2016-05-06" -->
@@ -2222,15 +3109,15 @@
   <tbody>
     <tr>
       <th>aflplusplus_hier_x</th>
-      <th>900</th>
+      <th>21600</th>
       <td>3.0</td>
-      <td>931.333333</td>
-      <td>6.027714</td>
-      <td>925.0</td>
-      <td>928.5</td>
-      <td>932.0</td>
-      <td>934.5</td>
-      <td>937.0</td>
+      <td>954.333333</td>
+      <td>9.712535</td>
+      <td>946.0</td>
+      <td>949.0</td>
+      <td>952.0</td>
+      <td>958.5</td>
+      <td>965.0</td>
     </tr>
   </tbody>
 </table>
@@ -2253,6 +3140,53 @@
                 </li>
             </ul>
 
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Unique coverage plots
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Ranking by unique regions covered</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="zlib_zlib_uncompress_fuzzer_ranking_unique_region.svg">
+                                    Each bar shows the total number of regions found by a given fuzzer.
+                                    The colored area shows the number of unique regions
+                                    (i.e., regions that were not covered by any other fuzzers).
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Pairwise unique coverage</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="zlib_zlib_uncompress_fuzzer_pairwise_unique_coverage_plot.svg">
+                                    Each cell represents the number of regions covered by the fuzzer
+                                    of the column but not by the fuzzer of the row
+                            </div>
+                        </div> <!-- row -->
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            
+                            <a href="/home/jinghan/experiment-data/aflpp-hier-r220/coverage/reports/zlib_zlib_uncompress_fuzzer/aflplusplus_hier_x/index.html" class="collection-item">aflplusplus_hier_x</a>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
             
 
         </div> <!-- id="zlib_zlib_uncompress_fuzzer" -->
